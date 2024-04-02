@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { CustomColors } from "../../custom/custom-colors";
 
 const ParagraphText = ({ style, textStyle, children, numberOflines }) => {
   return (
@@ -16,6 +17,7 @@ export default ParagraphText;
 const styles = StyleSheet.create({
   text: {
     fontSize: 14,
-    fontFamily: "orbitronRegular",
+    fontFamily: "orbitronMedium",
+    color: CustomColors.white,
   },
 });
