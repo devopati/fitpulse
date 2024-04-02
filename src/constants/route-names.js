@@ -1,7 +1,6 @@
 export const AUTH_STACK = "auth-stack";
 export const INTRO_SCREEN = "intro-screen";
-export const REGISTER_SCREEN = "register-screen";
-export const LOGIN_SCREEN = "login-screen";
+export const AUTH_SCREEN = "auth-screen";
 
 export const BOTTOM_TABS = "bottom-tabs";
 export const DISCOVER_SCREEN = "discover-screen";
