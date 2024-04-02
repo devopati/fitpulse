@@ -36,7 +36,7 @@ export default function App() {
     <View onLayout={handleOnLayout} style={{ flex: 1 }}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
-          <StatusBar style="auto" />
+          <StatusBar style="light" />
           <RootNavigation />
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
