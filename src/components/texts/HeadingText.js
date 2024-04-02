@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { CustomColors } from "../../custom/custom-colors";
 
 const HeadingText = ({ style, textStyle, children, allowFontScaling }) => {
   return (
@@ -18,8 +19,10 @@ export default HeadingText;
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 18,
+    fontSize: 21,
     fontWeight: "500",
     fontFamily: "orbitronSemiBold",
+    color: CustomColors.white,
+    textShadowColor: CustomColors.black,
   },
 });
