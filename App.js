@@ -8,6 +8,10 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import RootNavigation from "./src/navigation/RootNavigation";
 import { useCallback } from "react";
 import { View } from "react-native";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./src/redux/store";
+import LoadingView from "./src/components/loaders/LoadingView";
 
 enableFreeze(true);
 
@@ -34,12 +38,15 @@ export default function App() {
 
   return (
     <View onLayout={handleOnLayout} style={{ flex: 1 }}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <BottomSheetModalProvider>
-          <StatusBar style="light" />
-          <RootNavigation />
-        </BottomSheetModalProvider>
-      </GestureHandlerRootView>
+      <Provider store={store}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <PersistGate loading={<LoadingView />} persistor={persistor} />
+          <BottomSheetModalProvider>
+            <StatusBar style="light" />
+            <RootNavigation />
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
+      </Provider>
     </View>
   );
 }
