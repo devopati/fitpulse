@@ -3,11 +3,13 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import HeadingText from "../../../components/texts/HeadingText";
 import { CustomColors } from "../../../custom/custom-colors";
+import { useSelector } from "react-redux";
 
 const AuthButton = ({ text = "Sign up", onPress }) => {
+  const { isLoading } = useSelector((state) => state.auth);
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <HeadingText>{text}</HeadingText>
+      <HeadingText>{isLoading ? "please wait..." : text}</HeadingText>
     </TouchableOpacity>
   );
 };
