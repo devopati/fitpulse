@@ -2,11 +2,13 @@ import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import HeadingText from "../../../../components/texts/HeadingText";
 import { images } from "../../../../../assets/images";
+import { useSelector } from "react-redux";
 
 const ProfileTop = () => {
+  const { user } = useSelector((state) => state.auth);
   return (
     <View style={styles.container}>
-      <HeadingText>David</HeadingText>
+      <HeadingText>{user?.full_name.slice(0, 11) + "..."}</HeadingText>
 
       <Image source={images.dp} style={styles.dp} />
     </View>
