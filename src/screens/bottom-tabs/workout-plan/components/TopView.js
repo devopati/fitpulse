@@ -5,8 +5,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { containerStyle } from "../../../../custom/custom-styles";
 import HeadingText from "../../../../components/texts/HeadingText";
 import ParagraphText from "../../../../components/texts/ParagraphText";
+import { useSelector } from "react-redux";
 
 const TopView = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const getGreetings = () => {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
@@ -21,7 +24,7 @@ const TopView = () => {
   };
   return (
     <SafeAreaView style={[styles.container, containerStyle]}>
-      <HeadingText>Hello David,</HeadingText>
+      <HeadingText>Hello {user.full_name?.slice(0, 6) + "..."},</HeadingText>
       <ParagraphText>{getGreetings()}</ParagraphText>
     </SafeAreaView>
   );
